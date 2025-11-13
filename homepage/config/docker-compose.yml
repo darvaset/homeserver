@@ -1,0 +1,16 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    network_mode: host
+    environment:
+      TZ: 'America/Toronto'
+      WEBPASSWORD: 'pihole123'
+      FTLCONF_LOCAL_IPV4: '192.168.0.50'
+      FTLCONF_LOCAL_IPV6: '2607:f2c0:e9f2:250::50'
+      PIHOLE_DNS_: '8.8.8.8;8.8.4.4;2001:4860:4860::8888;2001:4860:4860::8844'
+      IPv6: 'true'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    restart: unless-stopped

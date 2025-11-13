@@ -1,0 +1,26 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    ports:
+      # Puerto interno del contenedor 8080 (HTTP) mapeado al puerto 8080 del host.
+      # ¡IMPORTANTE!: Este puerto es solo para el contenedor. Nginx Proxy Manager usará
+      # la IP 192.168.0.50 y el puerto 8080 del host para comunicarse.
+      - 8080:80 
+    volumes:
+      - ./data:/data
+    environment:
+      # Corregido: Usa el dominio completo HTTPS que ve el usuario.
+      DOMAIN: "https://vault.delaguilahuaroc.com" 
+      
+      # Correcto: Esto habilita la conexión en tiempo real.
+      WEBSOCKET_ENABLED: "true" 
+      
+      # Correcto: Puedes mantener estos como están.
+      SIGNUPS_ALLOWED: "true"
+      SHOW_PASSWORD_HINT: "false"
+      
+      # Opcional: Recomendado si usas un certificado autofirmado para forzar HTTPS
+      # ROCKET_TLS: "/data/rsa_key.pem,/data/delaguilahuaroc.key" 
+      # Sin embargo, lo haremos con NPM, así que lo dejamos fuera.

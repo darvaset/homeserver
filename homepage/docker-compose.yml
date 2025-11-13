@@ -1,0 +1,20 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config:/app/config
+      - ./config/icons:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      # ¡IMPORTANTE!: Esta línea es la clave, mantiene la validación interna.
+      HOMEPAGE_ALLOWED_HOSTS: "192.168.0.50:3000, home.delaguilahuaroc.com"
+      
+      # 🚨 NUEVA LÍNEA CLAVE: Variable que expone el dominio real al contenedor.
+      VIRTUAL_HOST: "home.delaguilahuaroc.com"
+      
+    restart: unless-stopped

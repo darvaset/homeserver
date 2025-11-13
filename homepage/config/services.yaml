@@ -1,0 +1,60 @@
+# Homepage Dashboard Configuration - Diego's Homeserver
+# Puertos: homepage:3000, nginx:8091, pihole:80, portainer:9000, vaultwarden:8080, filebrowser:8082
+
+- Network & Security:
+    - Pi-hole:
+        href: https://pihole.delaguilahuaroc.com/admin
+        description: Network-wide Ad Blocking & DNS
+        icon: pi-hole.png
+        ping: http://192.168.0.50:8088
+
+    - WireGuard:
+        href: http://192.168.0.50:51821
+        description: VPN - Secure Remote Access
+        icon: wireguard.png
+        ping: http://192.168.0.50:51821
+
+- Management:
+    - Portainer:
+        href: https://portainer.delaguilahuaroc.com
+        description: Docker Container Management
+        icon: portainer.png
+        ping: http://192.168.0.50:9000
+
+    - Nginx Proxy Manager:
+        href: http://192.168.0.50:81
+        description: Reverse Proxy & SSL Certificates
+        icon: nginx-proxy-manager.png
+        ping: http://192.168.0.50:81
+
+    - Homepage:
+        href: http://192.168.0.50:3000
+        description: This Dashboard
+        icon: homepage.png
+        ping: http://192.168.0.50:3000
+
+    - FileBrowser:
+        href: https://filebrowser.delaguilahuaroc.com
+        description: Web File Manager & Explorer
+        icon: filebrowser.png
+        ping: http://192.168.0.50:8082
+
+- Applications:
+    - Vaultwarden:
+        href: https://vault.delaguilahuaroc.com
+        description: Self-hosted Password Manager
+        icon: vaultwarden.png
+        ping: http://192.168.0.50:8080
+
+- Server Infrastructure:
+    - TRIGKEY N100 Mini PC:
+        href: http://192.168.0.50:9000
+        description: Ubuntu Server 24.04 • Docker Host
+        icon: /icons/minipc.png
+        ping: http://192.168.0.50
+
+    - TekSavvy Router:
+        href: http://192.168.0.1
+        description: Gateway & Modem
+        icon: /icons/teksavvy.png
+        ping: http://192.168.0.1

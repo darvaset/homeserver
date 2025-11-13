@@ -1,0 +1,32 @@
+# Ignorar archivos de log y temporales
+*.log
+*.db
+*.db-*
+*.sqlite*
+tmp/
+
+# Ignorar archivos generados por el agente
+analisis_servidor.md
+darva_homeserver_log.md
+HomeServer_Agent.md
+
+# Ignorar archivos comunes de sistema
+.DS_Store
+pihole/etc-pihole/logrotate
+
+# --- REGLAS DE SEGURIDAD CRÍTICAS ---
+# Ignorar explícitamente directorios de datos sensibles
+nginx-proxy-manager/data/
+nginx-proxy-manager/letsencrypt/
+vaultwarden/data/
+filebrowser/data/
+pihole/etc-pihole/
+pihole/etc-dnsmasq.d/
+
+# Ignorar explícitamente archivos de claves y certificados
+# Usamos patrones glob para cualquier archivo .key o .pem en el proyecto
+**/*.key
+**/*.pem
+
+# Ignorar explícitamente configuraciones y claves de WireGuard
+wireguard/config/

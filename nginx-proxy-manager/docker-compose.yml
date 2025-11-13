@@ -1,0 +1,13 @@
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    ports:
+      # Estos son los puertos públicos que debe tener disponibles NPM:
+      - '80:80'    # Puerto HTTP (para redireccionar a HTTPS)
+      - '443:443'  # Puerto HTTPS (para tráfico seguro)
+      - '81:81'    # Puerto de acceso a la Interfaz Web de administración de NPM
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt

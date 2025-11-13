@@ -1,0 +1,43 @@
+---
+- logo:
+    icon: https://github.com/gethomepage/homepage/raw/main/public/android-chrome-192x192.png
+
+- greeting:
+    text_size: xl
+    text: "Welcome to Del Aguila Homeserver"
+
+- search:
+    provider: google
+    target: _blank
+    showSearchSuggestions: true
+
+- datetime:
+    text_size: lg
+    format:
+      dateStyle: full
+      timeStyle: short
+      hourCycle: h23
+    locale: en
+
+- openmeteo:
+    label: Thornhill, ON
+    latitude: 43.8561
+    longitude: -79.4426
+    units: metric
+    cache: 5
+
+- resources:
+    backend: resources
+    expanded: true
+    cpu: true
+    cputemp: true
+    memory: true
+    disk: /
+    uptime: true
+    label: System Resources
+
+- unifi_console:
+    # Deshabilitado temporalmente
+    # url: http://192.168.0.50:8443
+    # username: admin
+    # password: password

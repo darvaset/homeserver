@@ -1,0 +1,28 @@
+---
+- Development:
+    - Github:
+        - abbr: GH
+          href: https://github.com
+          icon: github-light.png
+    - Docker Hub:
+        - abbr: DH
+          href: https://hub.docker.com
+          icon: docker.png
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com
+          icon: youtube.png
+    - Reddit:
+        - abbr: RE  
+          href: https://reddit.com
+          icon: reddit.png
+
+- Tools & Utilities:
+    - Speedtest:
+        - abbr: ST
+          href: https://speedtest.net
+    - What's My IP:
+        - abbr: IP
+          href: https://whatismyipaddress.com

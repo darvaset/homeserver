@@ -1,0 +1,29 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    # 🚨 CAMBIO CLAVE: Cambiamos de 'host' a una red 'bridge'
+    # La red 'default' es una red bridge interna de Docker
+    # network_mode: host <-- ELIMINADO
+    environment:
+      TZ: 'America/Toronto'
+      WEBPASSWORD: 'Q.dvFT4BUlDKCtMc.ca'
+      # Pi-hole utilizará el puerto 80 internamente (default)
+      # WEB_PORT: '8082' <-- ELIMINADO para usar el valor predeterminado (80)
+      PIHOLE_DNS_: '8.8.8.8;8.8.4.4;2001:4860:4860::8888;2001:4860:4860::8844'
+      IPv6: 'true'
+      DNSMASQ_LISTENING: 'all'
+      INTERFACE: 'eth0' # Cambiar de 'enp1s0' (interfaz del host) a 'eth0' (interfaz del contenedor)
+    
+    # 🚨 CAMBIO CLAVE: Definimos el mapeo de puertos
+    ports:
+      # El DNS principal (53) debe seguir expuesto en el host
+      - "53:53/tcp" 
+      - "53:53/udp"
+      # Mapeamos la interfaz Web (puerto interno 80) al puerto 8088 del host
+      - "8088:80" 
+      
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    restart: unless-stopped

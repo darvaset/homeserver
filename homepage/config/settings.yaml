@@ -1,0 +1,37 @@
+---
+title: Del Aguila Homeserver
+background: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=format&fit=crop&w=2560&q=80
+subtitle: Network Infrastructure & Services Dashboard
+favicon: https://github.com/gethomepage/homepage/raw/main/public/android-chrome-192x192.png
+
+# Tema y colores
+theme: dark
+color: slate
+target: _blank
+
+# Custom CSS habilitado
+customCSS: /app/config/custom.css
+
+# Layout mejorado
+layout:
+  Network & Security:
+    style: row
+    columns: 2
+  Management:
+    style: row 
+    columns: 3
+  Applications:
+    style: row
+    columns: 1
+  Server Infrastructure:
+    style: row
+    columns: 2
+
+# Configuración general
+hideVersion: true
+startUrl: http://192.168.0.50:3000
+headerStyle: boxed
+hideErrors: true
+showStats: true
+statsOpen: false
+cardBlur: md

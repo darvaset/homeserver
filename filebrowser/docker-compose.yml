@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:v2
+    container_name: filebrowser
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    volumes:
+      - /home/darva-ubuntu:/srv
+      - ./data:/database
+    environment:
+      - FB_DATABASE=/database/filebrowser.db
+      - FB_ROOT=/srv
+    networks:
+      - homepage-network
+
+networks:
+  homepage-network:
+    external: true
